@@ -1,11 +1,15 @@
+import {useRouter} from "next/router";
 import React, {SyntheticEvent} from "react";
-import {childProps, clickProps} from "../../libs/configType";
+import {clickTypes, getStateProps} from "../../libs/configType";
 
-export default function HomeButton({ parentCallback }: childProps) {
+export default function HomeButton({ parentCallback }: getStateProps) {
 
+
+	const router = useRouter();
 
 	const homeClick = (event: SyntheticEvent<HTMLButtonElement>) => {
-		parentCallback(event.currentTarget.value as clickProps);
+		router.push("/");
+		parentCallback(event.currentTarget.value as clickTypes);
 	}
 
 	return (

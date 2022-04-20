@@ -1,16 +1,12 @@
 import Image from "next/image";
-import {SyntheticEvent, useState} from "react";
-import { childProps, clickProps } from "../../libs/configType";
+import {SyntheticEvent} from "react";
+import {clickTypes, getStateProps} from "../../libs/configType";
 
 
-
-
-export default function MainForm({ parentCallback } : childProps) {
-
-	const [active, setActive] = useState<clickProps>("MainView");
+export default function MainForm({ active, parentCallback }: getStateProps) {
 
 	const onClick = (event: SyntheticEvent<HTMLButtonElement>)  => {
-		parentCallback(event.currentTarget.value as clickProps);
+		parentCallback(event.currentTarget.value as clickTypes);
 	}
 
 	return (
@@ -43,15 +39,15 @@ export default function MainForm({ parentCallback } : childProps) {
 						?
 						<Image
 							className="w-full select-none"
-							src="/cancel.svg"
-							alt="cancel"
+							src="/ok.svg"
+							alt="ok"
 							width={48}
 							height={48}/>
 						:
 						<Image
 							className="w-full select-none"
-							src="/ok.svg"
-							alt="ok"
+							src="/cancel.svg"
+							alt="cancel"
 							width={48}
 							height={48}/>
 					}

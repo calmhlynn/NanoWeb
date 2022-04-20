@@ -1,10 +1,10 @@
 import React, {useRef, useState} from "react";
 import {pipe} from "@fxts/core";
 import {drawOption, drawReset, numArrayPush} from "../../libs/draw";
-import {childProps, clickProps} from "../../libs/configType";
+import {getStateProps, clickTypes} from "../../libs/configType";
 import HomeButton from "../button/home";
 
-export default function Draw({ parentCallback }: childProps) {
+export default function Draw({ parentCallback }: getStateProps) {
 
 	const regionPoint: number[][] = [];
 
@@ -39,7 +39,7 @@ export default function Draw({ parentCallback }: childProps) {
 		setReally(false);
 	}
 
-	const childComponent = (finger: clickProps) => {
+	const childComponent = (finger: clickTypes) => {
 		parentCallback(finger);
 	}
 
@@ -81,7 +81,7 @@ export default function Draw({ parentCallback }: childProps) {
 					</button>
 					<button
 						className="px-5 py-2 bg-black border-white border rounded-xl w-auto ml-1
-									hover:text-green-600 hover:ring-offset-1
+									hover:text-green-400 hover:ring-offset-1
 									transition duration-300"
 						type="submit"
 						onClick={drawClick}>
@@ -100,7 +100,7 @@ export default function Draw({ parentCallback }: childProps) {
 					</button>
 					<button
 						className="px-5 py-1 bg-black border-white border rounded-xl w-auto ml-1
-									hover:text-green-600 hover:ring-offset-1
+									hover:text-green-400 hover:ring-offset-1
 									transition duration-300"
 						type="submit"
 						onClick={drawClick}>
